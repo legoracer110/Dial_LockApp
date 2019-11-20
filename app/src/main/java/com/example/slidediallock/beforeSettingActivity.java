@@ -25,17 +25,12 @@ import java.util.ArrayList;
 
 public class beforeSettingActivity extends Activity {
 
-    private ArrayList<Integer> pw;
-    private String pw2;
+    private String pw;
 
     private Integer pwSize;
-    private Integer pwSize2;
 
-    private Integer inputNum;
-    private String inputNum2;
-
-    private ArrayList<Integer> inputPw;
-    private String inputPw2;
+    private String inputNum;
+    private String inputPw;
 
     private LinearLayout bg_screen;
 
@@ -127,53 +122,16 @@ public class beforeSettingActivity extends Activity {
                 | View.SYSTEM_UI_FLAG_FULLSCREEN);
         bg_screen = (LinearLayout)mView.findViewById(R.id.bg_layout);
 
-        inputNum = 0;
-        inputPw = new ArrayList<Integer>();
-        inputPw2 = "";
+        inputPw = "";
 
-        // 비밀번호 배열 ( 임시비번 = 0000 )
-        pw = new ArrayList();
-        pw.add(2);
-        pw.add(21);
-        pw.add(35);
-        pw.add(1);
-        pwSize = pw.size();
-
-        pw2 = "bfha";
-        pwSize2 = pw2.length();
+        pw = "bfha";
+        pwSize = pw.length();
 
         img_input = (ImageView) mView.findViewById(R.id.input_img);
-        if(pwSize==2 || pwSize2==2)
+        if(pwSize==2)
             img_input.setImageResource(R.drawable.input_2pw0);
         else
             img_input.setImageResource(R.drawable.input_4pw0);
-        /*
-        if(lpw==0) {
-            pw.add(0);
-            pw.add(0);
-            img_Input.setImageResource(R.drawable.input_2pw0);
-        }else{
-            if(pwSize==2){
-                // 비밀번호 사이즈 2
-                Integer a = lpw/10;
-                Integer b = lpw%10;
-                pw.add(a);
-                pw.add(b);
-                img_Input.setImageResource(R.drawable.input_2pw0);
-            }else{
-                // 비밀번호 사이즈 4
-                Integer a = lpw/1000;
-                Integer b = (lpw%1000)/100;
-                Integer c = (lpw%100)/10;
-                Integer d = lpw%10;
-                pw.add(a);
-                pw.add(b);
-                pw.add(c);
-                pw.add(d);
-                img_Input.setImageResource(R.drawable.input_4pw0);
-            }
-        }
-        */
 
         mImg1 = (ImageView) mView.findViewById(R.id.img1);
         mImg1.setTag(IMAGEVIEW_TAG);
@@ -259,36 +217,26 @@ public class beforeSettingActivity extends Activity {
                     //animator.start();
                     switch (v.getId()) {
                         case R.id.img1:
-                            inputNum = 1;
-                            inputNum2 = "a";
+                            inputNum = "a";
                             break;
                         case R.id.img2:
-                            inputNum = 2;
-                            inputNum2 = "b";
+                            inputNum = "b";
                             break;
                         case R.id.img3:
-                            inputNum = 3;
-                            inputNum2 = "c";
+                            inputNum = "c";
                             break;
                         case R.id.img4:
-                            inputNum = 4;
-                            inputNum2 = "d";
+                            inputNum = "d";
                             break;
                         case R.id.img5:
-                            inputNum = 5;
-                            inputNum2 = "";
+                            inputNum = "";
                             break;
                     }
-
-                    //v.setVisibility(View.INVISIBLE);
 
                     break;
                 case MotionEvent.ACTION_MOVE:
 
                     img_cursor2.setY(v.getY() + (motionEvent.getY()) - (img_cursor2.getHeight()/2));
-
-                    //img_cursor.setX(v.getX() + (motionEvent.getX()) - (img_cursor.getWidth()/2));
-
                     float p = 0.0008f;
                     float tmp = img_cursor2.getY()-parentHeight/2;
                     img_cursor2.setX(p*tmp*tmp+parentWidth/2+30f);
@@ -297,29 +245,20 @@ public class beforeSettingActivity extends Activity {
                 case MotionEvent.ACTION_UP:
 
                     if(img_cursor2.getY() < 650){
-                        /*
-                        inputNum*=7;
-                        if(inputNum!=7)
-                            enterInput(inputNum);
-                        */
-                        switch(inputNum2){
-                            case "" : inputNum2 = "h"; break;
-                            case "a" : inputNum2 =""; break;
-                            case "b" : inputNum2 ="e"; break;
-                            case "c" : inputNum2 ="f"; break;
-                            case "d" : inputNum2 ="g"; break;
+                        switch(inputNum){
+                            case "" : inputNum = "h"; break;
+                            case "a" : inputNum =""; break;
+                            case "b" : inputNum ="e"; break;
+                            case "c" : inputNum ="f"; break;
+                            case "d" : inputNum ="g"; break;
                         }
 
-                        if(inputNum2!="")
-                            enterInput2(inputNum2);
+                        if(inputNum!="")
+                            enterInput(inputNum);
 
                     }else if(img_cursor2.getY() > 1600){
-                        /*
-                        if(inputNum!=5)
+                        if(inputNum!="")
                             enterInput(inputNum);
-                        */
-                        if(inputNum2!="")
-                            enterInput2(inputNum2);
                     }
 
                     v.setVisibility(View.VISIBLE);
@@ -336,58 +275,26 @@ public class beforeSettingActivity extends Activity {
     }
 
     void CheckPW() {
-        Log.d("Activity", "checkPW");
-        boolean wrongPw = false;
-
-        int index = 0;
-
-        while(index<pwSize){
-
-            if(inputPw.get(index)!=pw.get(index)){
-                wrongPw = true;
-                break;
-            }
-            index++;
-        }
-
-        if(wrongPw){
-            Log.d("Activity", "wrong");
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    incorrect();
-                }
-            }, 200);    //0.2초 뒤에
-            wrongPw = false;
-            return;
-        }else{
-            Log.d("Activity", "unlock1");
-            Unlock();
-        }
-
-    }
-
-    void CheckPW2() {
 
         Log.d("input", "Check Pw");
 
         boolean wrongPw = false;
 
-        Log.d("input", "INPUT PW2 = " + inputPw2);
-        Log.d("input", "REAL PW = " + pw2);
+        Log.d("input", "INPUT PW2 = " + inputPw);
+        Log.d("input", "REAL PW = " + pw);
 
-        if(!inputPw2.equals(pw2))
+        if(!inputPw.equals(pw))
             wrongPw = true;
 
         Log.d("input", "WRONG PW ? = " + wrongPw);
-        Log.d("input", "SIZE ? = " + inputPw2.length() + "/"+pw2.length());
+        Log.d("input", "SIZE ? = " + inputPw.length() + "/"+pw.length());
 
         if(wrongPw){
 
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    incorrect2();
+                    incorrect();
                 }
             }, 200);    //0.2초 뒤에
             wrongPw = false;
@@ -410,7 +317,7 @@ public class beforeSettingActivity extends Activity {
 
     void incorrect(){
 
-        inputPw.clear();
+        inputPw = "";
         if(pwSize==2) {
             img_input.setImageResource(R.drawable.input_2pw0);
         }else if(pwSize==4){
@@ -418,35 +325,24 @@ public class beforeSettingActivity extends Activity {
         }
     }
 
-    void incorrect2(){
-
-        inputPw2 = "";
-        if(pwSize2==2) {
-            img_input.setImageResource(R.drawable.input_2pw0);
-        }else if(pwSize2==4){
-            img_input.setImageResource(R.drawable.input_4pw0);
-        }
-    }
-
-    void enterInput(Integer num){
-        inputPw.add(num);
+    void enterInput(String str){
+        inputPw+=str;
         img_check.setVisibility(View.VISIBLE);
         img_check.setX(img_cursor2.getX());
         img_check.setY(img_cursor2.getY());
         animator.start();
-        Log.d("Input", "INPUT : "+inputPw);
-
+        Log.d("Input2", "INPUT : "+inputPw);
 
         if(pwSize==2) {
-            if (inputPw.size() == 1) {
+            if (inputPw.length() == 1) {
                 img_input.setImageResource(R.drawable.input_2pw1);
-            } else if (inputPw.size() == 2) {
+            } else if (inputPw.length() == 2) {
                 img_input.setImageResource(R.drawable.input_2pw2);
             } else {
                 img_input.setImageResource(R.drawable.input_2pw0);
             }
         }else {
-            switch (inputPw.size()) {
+            switch (inputPw.length()) {
                 case 0:
                     img_input.setImageResource(R.drawable.input_4pw0);
                     break;
@@ -465,47 +361,22 @@ public class beforeSettingActivity extends Activity {
             }
         }
 
-        if(inputPw.size()==pw.size())
+        if(inputPw.length()==pw.length())
             CheckPW();
     }
 
-    void enterInput2(String str){
-        inputPw2+=str;
-        img_check.setVisibility(View.VISIBLE);
-        img_check.setX(img_cursor2.getX());
-        img_check.setY(img_cursor2.getY());
-        animator.start();
-        Log.d("Input2", "INPUT : "+inputPw2);
+    @Override
+    public void onDestroy(){
+        wm.removeViewImmediate(mView);
+        finishAffinity();
 
-        if(pwSize2==2) {
-            if (inputPw2.length() == 1) {
-                img_input.setImageResource(R.drawable.input_2pw1);
-            } else if (inputPw2.length() == 2) {
-                img_input.setImageResource(R.drawable.input_2pw2);
-            } else {
-                img_input.setImageResource(R.drawable.input_2pw0);
-            }
-        }else {
-            switch (inputPw2.length()) {
-                case 0:
-                    img_input.setImageResource(R.drawable.input_4pw0);
-                    break;
-                case 1:
-                    img_input.setImageResource(R.drawable.input_4pw1);
-                    break;
-                case 2:
-                    img_input.setImageResource(R.drawable.input_4pw2);
-                    break;
-                case 3:
-                    img_input.setImageResource(R.drawable.input_4pw3);
-                    break;
-                case 4:
-                    img_input.setImageResource(R.drawable.input_4pw4);
-                    break;
-            }
-        }
+        super.onDestroy();
+    }
 
-        if(inputPw2.length()==pw2.length())
-            CheckPW2();
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+        //finishAffinity();
     }
 }

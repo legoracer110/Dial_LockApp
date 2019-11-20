@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -30,8 +31,12 @@ public class SettingsActivity extends Activity {
     private Integer pwSize;
     private Integer pwList;
 
-    private ArrayList<Integer> inputPw;
-    private ArrayList<Integer> checkPw;
+    private String inputPw;
+    private String checkPw;
+
+    private String descPw;
+
+    private TextView txtPw;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,6 +50,48 @@ public class SettingsActivity extends Activity {
 
         boot_first = false;
         boot_first = sf.getBoolean("firstBoot2", false);
+
+        inputPw = sf.getString("pwList", "bfha");
+        checkPw = sf.getString("pwCheck", "");
+
+        pwSize = sf.getInt("pwSize", 4);
+
+        descPw = "";
+
+        if(pwSize!=0) {
+            for (int i = 0; i < pwSize; i++) {
+                switch (inputPw.charAt(i)) {
+                    case 'a':
+                        descPw += "1D ";
+                        break;
+                    case 'b':
+                        descPw += "2D ";
+                        break;
+                    case 'c':
+                        descPw += "3D ";
+                        break;
+                    case 'd':
+                        descPw += "4D ";
+                        break;
+                    case 'e':
+                        descPw += "2U ";
+                        break;
+                    case 'f':
+                        descPw += "3U ";
+                        break;
+                    case 'g':
+                        descPw += "4U ";
+                        break;
+                    case 'h':
+                        descPw += "5U ";
+                        break;
+                }
+            }
+        }
+
+        txtPw = (TextView)findViewById(R.id.input_pw);
+        txtPw.setText(descPw);
+        Log.d("desc", descPw);
 
         useLock = (CheckBox)findViewById(R.id.check_use);
         useLock.setChecked(powerOn);
@@ -103,8 +150,6 @@ public class SettingsActivity extends Activity {
                 spw1.setChecked(false);
             }
         }) ;
-
-        //inputPw = sf.getInteger("firstBoot2", false);
 
         confirm = (Button)findViewById(R.id.confirm);
         confirm.setOnClickListener(new View.OnClickListener(){
