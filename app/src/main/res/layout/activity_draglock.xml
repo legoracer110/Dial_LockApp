@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/anim_cursor"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="darkblue_circle.json"
+        android:visibility="invisible"
+        app:lottie_loop = "true"
+        />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/anim_cursor2"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="pw_check.json"
+        android:visibility="invisible"
+
+        />
+
+    <ImageView
+        android:id="@+id/i_cursor"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/mad"
+        android:visibility="invisible" />
+
+    <LinearLayout
+        android:id="@+id/bg_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteY="99dp">
+
+        <ImageView
+            android:id="@+id/input_img"
+            android:layout_width="160dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+             />
+
+        <ImageView
+            android:id="@+id/img1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="330dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/dot_inside_a_circle"
+            android:clickable="true" />
+
+        <ImageView
+            android:id="@+id/img2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="270dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/dot_inside_a_circle"
+            android:clickable="true" />
+
+        <ImageView
+            android:id="@+id/img3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="240dp"
+            android:layout_marginTop="45dp"
+            android:background="@drawable/dot_inside_a_circle"
+            android:clickable="true" />
+
+        <ImageView
+            android:id="@+id/img4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="270dp"
+            android:layout_marginTop="45dp"
+            android:background="@drawable/dot_inside_a_circle"
+            android:clickable="true" />
+
+        <ImageView
+            android:id="@+id/img5"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="330dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/dot_inside_a_circle"
+            android:clickable="true" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

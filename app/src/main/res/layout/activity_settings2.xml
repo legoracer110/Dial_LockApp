@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+
+            android:background="#9E9E9E"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="설정"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:background="#D5D5D5"
+            android:gravity="center"
+
+            android:text="테마 설정"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="639dp">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/imgEff"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="200dp"
+                android:layout_marginTop="350dp"
+                android:visibility="visible"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="pw_check.json"
+
+                />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="match_parent"
+                android:layout_height="611dp"
+                android:background="@drawable/orora" />
+
+            <ImageView
+                android:id="@+id/btn1"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="350dp"
+                android:layout_marginTop="100dp"
+                android:background="@drawable/dot_inside_a_circle" />
+
+            <ImageView
+                android:id="@+id/btn2"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="280dp"
+                android:layout_marginTop="165dp"
+                android:background="@drawable/dot_inside_a_circle" />
+
+            <ImageView
+                android:id="@+id/btn3"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="260dp"
+                android:layout_marginTop="240dp"
+                android:background="@drawable/dot_inside_a_circle" />
+
+            <ImageView
+                android:id="@+id/btn4"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="280dp"
+                android:layout_marginTop="315dp"
+                android:background="@drawable/dot_inside_a_circle" />
+
+            <ImageView
+                android:id="@+id/btn5"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="350dp"
+                android:layout_marginTop="380dp"
+                android:background="@drawable/dot_inside_a_circle" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="616dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="123dp"
+                        android:layout_height="33dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center"
+                        android:text="테마 프리셋"
+                        android:textColor="#ffffff"
+                        android:textSize="17sp" />
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="33dp"
+                        android:layout_marginTop="4dp"
+                        android:checked="true"
+                        android:text="Orora"
+                        android:textColor="#ffffff"
+                        android:textSize="17sp" />
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="33dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="4dp"
+                        android:checked="false"
+                        android:text="Noon"
+                        android:textColor="#ffffff"
+                        android:textSize="17sp" />
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="33dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="4dp"
+                        android:checked="false"
+                        android:text="Night"
+                        android:textColor="#ffffff"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="123dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="40dp"
+                    android:background="#33D5D5D5"
+                    android:gravity="center"
+                    android:text="버튼 테마"
+                    android:textColor="#ffffff"
+                    android:textSize="17sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/btn_theme1"
+                        android:layout_width="90dp"
+                        android:layout_height="19dp"
+                        android:layout_marginTop="4dp"
+                        android:checked="true"
+                        android:text="Theme1"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp" />
+
+                    <CheckBox
+                        android:id="@+id/btn_theme2"
+                        android:layout_width="90dp"
+                        android:layout_height="19dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="4dp"
+                        android:checked="false"
+                        android:text="Theme2"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/btn_theme3"
+                        android:layout_width="90dp"
+                        android:layout_height="19dp"
+                        android:layout_marginTop="4dp"
+                        android:checked="false"
+                        android:text="Theme3"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp" />
+
+                    <CheckBox
+                        android:id="@+id/btn_theme4"
+                        android:layout_width="90dp"
+                        android:layout_height="19dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="4dp"
+                        android:checked="false"
+                        android:text=" 기본"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="123dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="35dp"
+                    android:background="#33D5D5D5"
+                    android:gravity="center"
+                    android:text="배경화면"
+                    android:textColor="#ffffff"
+                    android:textSize="17sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal">
+
+
+                    <CheckBox
+                        android:id="@+id/bg_theme1"
+                        android:layout_width="90dp"
+                        android:layout_height="19dp"
+                        android:layout_marginTop="4dp"
+                        android:checked="true"
+                        android:text="Theme1"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp" />
+
+                    <CheckBox
+                        android:id="@+id/bg_theme2"
+                        android:layout_width="90dp"
+                        android:layout_height="19dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="4dp"
+                        android:checked="false"
+                        android:text="Theme2"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal">
+
+
+                    <CheckBox
+                        android:id="@+id/bg_theme3"
+                        android:layout_width="90dp"
+                        android:layout_height="19dp"
+                        android:layout_marginTop="4dp"
+                        android:checked="false"
+                        android:text="Theme3"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp" />
+
+                    <CheckBox
+                        android:id="@+id/bg_theme4"
+                        android:layout_width="90dp"
+                        android:layout_height="19dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="4dp"
+                        android:checked="false"
+                        android:text="Theme4"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal">
+
+
+                    <CheckBox
+                        android:id="@+id/bg_theme5"
+                        android:layout_width="90dp"
+                        android:layout_height="19dp"
+                        android:layout_marginTop="4dp"
+                        android:checked="true"
+                        android:text=" 투명"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp" />
+
+                    <CheckBox
+                        android:id="@+id/bg_theme6"
+                        android:layout_width="90dp"
+                        android:layout_height="19dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="4dp"
+                        android:checked="false"
+                        android:text="앨범선택"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="123dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="35dp"
+                    android:background="#33D5D5D5"
+                    android:gravity="center"
+                    android:text="터치 효과"
+                    android:textColor="#ffffff"
+                    android:textSize="17sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal">
+
+
+                    <CheckBox
+                        android:id="@+id/eff_theme1"
+                        android:layout_width="90dp"
+                        android:layout_height="19dp"
+                        android:layout_marginTop="4dp"
+                        android:checked="true"
+                        android:text="Theme1"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp" />
+
+                    <CheckBox
+                        android:id="@+id/eff_theme2"
+                        android:layout_width="90dp"
+                        android:layout_height="19dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="4dp"
+                        android:checked="false"
+                        android:text="Theme2"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal">
+
+
+                    <CheckBox
+                        android:id="@+id/eff_theme3"
+                        android:layout_width="90dp"
+                        android:layout_height="19dp"
+                        android:layout_marginTop="4dp"
+                        android:checked="false"
+                        android:text="Theme3"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp" />
+
+                    <CheckBox
+                        android:id="@+id/eff_theme4"
+                        android:layout_width="90dp"
+                        android:layout_height="19dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="4dp"
+                        android:checked="false"
+                        android:text="Theme4"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="64dp"
+                    android:layout_height="21dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/page2_re" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/cancel"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:text="이전"
+                        android:textSize="15sp" />
+
+                    <Button
+                        android:id="@+id/confirm"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:text="다음"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+
+
+
+    </LinearLayout>
+</ScrollView>
