@@ -4,11 +4,14 @@ import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.PixelFormat;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
 import android.util.Log;
+import android.view.Display;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -21,7 +24,8 @@ import android.widget.LinearLayout;
 
 import com.airbnb.lottie.LottieAnimationView;
 
-import java.util.ArrayList;
+import static android.R.color.black;
+import static android.R.color.holo_green_dark;
 
 public class beforeSettingActivity extends Activity {
 
@@ -40,6 +44,13 @@ public class beforeSettingActivity extends Activity {
     private ImageView mImg4;
     private ImageView mImg5;
 
+    private ImageView selected;
+
+    // 테마 저장 변수 (인덱스)
+    private Integer btnTheme;
+    private Integer bgTheme;
+    private Integer effTheme;
+
     private ImageView img_input;
 
     private ImageView img_cursor;
@@ -56,27 +67,37 @@ public class beforeSettingActivity extends Activity {
     View mView;
     Vibrator vibrator;
 
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
+    ////////////// 해상도 구하기 ////////////////
+    int standardSize_X, standardSize_Y;
+    float density;
 
-        switch(keyCode) {
-            case KeyEvent.KEYCODE_BACK:
-                // 여기에 뒤로가기 버튼을 눌렀을 때 행동 입력
-                return false;
+    Point ScreenSize;
 
-            case KeyEvent.KEYCODE_HOME:
-                // 여기에 홈 버튼을 눌렀을 때 행동 입력
-                return false;
-            case KeyEvent.KEYCODE_MENU:
-                return false;
-        }
+    public Point getScreenSize(Activity activity) {
+        Display display = activity.getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
 
-        return super.onKeyDown(keyCode, event);
-
+        return  size;
     }
+    /*
+    public void getStandardSize() {
+        Point ScreenSize = getScreenSize(this);
+        density  = getResources().getDisplayMetrics().density;
+
+        standardSize_X = (int) (ScreenSize.x / density);
+        standardSize_Y = (int) (ScreenSize.y / density);
+    }
+    //////////////////////////////////
+    */
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //getStandardSize();
+
+        ScreenSize = getScreenSize(this);
 
         // 진동
         vibrator = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
@@ -124,8 +145,15 @@ public class beforeSettingActivity extends Activity {
 
         inputPw = "";
 
-        pw = "bfha";
-        pwSize = pw.length();
+        SharedPreferences sf = getSharedPreferences("sFile",MODE_PRIVATE);
+        pw = sf.getString("pwList", "bfha");
+        //pw = "bfha";
+        pwSize = sf.getInt("pwSize", 4);
+        //pwSize = pw.length();
+
+        btnTheme = sf.getInt("btnTheme", 4);
+        bgTheme = sf.getInt("bgTheme", 5);
+        effTheme = sf.getInt("effTheme", 1);
 
         img_input = (ImageView) mView.findViewById(R.id.input_img);
         if(pwSize==2)
@@ -173,6 +201,98 @@ public class beforeSettingActivity extends Activity {
         mImg5.setOnTouchListener(new beforeSettingActivity.TouchListener());
         mImg5.setClickable(true);
 
+        switch(btnTheme){
+            case 1:
+                mImg1.setBackgroundResource(R.drawable.moon_100);
+                mImg2.setBackgroundResource(R.drawable.moon_75);
+                mImg3.setBackgroundResource(R.drawable.moon_50);
+                mImg4.setBackgroundResource(R.drawable.moon_25);
+                mImg5.setBackgroundResource(R.drawable.moon_0);
+                break;
+            case 2:
+                mImg1.setBackgroundResource(R.drawable.star_neon);
+                mImg2.setBackgroundResource(R.drawable.star_neon);
+                mImg3.setBackgroundResource(R.drawable.star_neon);
+                mImg4.setBackgroundResource(R.drawable.star_neon);
+                mImg5.setBackgroundResource(R.drawable.star_neon);
+                break;
+            case 3:
+                mImg1.setBackgroundResource(R.drawable.snowflake);
+                mImg2.setBackgroundResource(R.drawable.snowflake);
+                mImg3.setBackgroundResource(R.drawable.snowflake);
+                mImg4.setBackgroundResource(R.drawable.snowflake);
+                mImg5.setBackgroundResource(R.drawable.snowflake);
+                break;
+            case 4:
+                mImg1.setBackgroundResource(R.drawable.dot_inside_a_circle);
+                mImg2.setBackgroundResource(R.drawable.dot_inside_a_circle);
+                mImg3.setBackgroundResource(R.drawable.dot_inside_a_circle);
+                mImg4.setBackgroundResource(R.drawable.dot_inside_a_circle);
+                mImg5.setBackgroundResource(R.drawable.dot_inside_a_circle);
+                break;
+            case 5:
+                mImg1.setBackgroundResource(R.drawable.clover_cute_comp);
+                mImg2.setBackgroundResource(R.drawable.clover_cute_comp);
+                mImg3.setBackgroundResource(R.drawable.clover_cute_comp);
+                mImg4.setBackgroundResource(R.drawable.clover_cute_comp);
+                mImg5.setBackgroundResource(R.drawable.clover_cute_comp);
+                break;
+        }
+
+        switch(bgTheme){
+            case 1:
+                bg_screen.setBackgroundResource(R.drawable.orora);
+                break;
+            case 2:
+                bg_screen.setBackgroundResource(R.drawable.neon);
+                break;
+            case 3:
+                bg_screen.setBackgroundResource(R.drawable.frozen);
+                break;
+            case 4:
+                bg_screen.setBackgroundResource(R.drawable.frozen4);
+                break;
+            case 5:
+                bg_screen.setBackgroundColor(getResources().getColor(holo_green_dark));
+                //bg_screen.setBackgroundResource(R.drawable.bg_green2);
+                img_input.setImageResource(R.drawable.eyes_0);
+                break;
+            case 6:
+                break;
+            case 7:
+                bg_screen.setBackgroundResource(0);
+                break;
+            case 8:
+                break;
+        }
+
+        switch(effTheme){
+            case 1:
+                img_check.setAnimation("pw_check.json");
+                img_cursor2.setAnimation("circle_anim_white.json");
+                img_cursor2.setScaleX(0.7f);
+                img_cursor2.setScaleY(0.7f);
+                img_cursor2.playAnimation();
+                break;
+            case 2:
+                img_check.setAnimation("fireworks_ice_x2.json");
+                img_cursor2.setAnimation("circle_anim_yellow.json");
+                img_cursor2.setScaleX(0.7f);
+                img_cursor2.setScaleY(0.7f);
+                img_cursor2.playAnimation();
+                break;
+            case 3:
+                //img_check = (LottieAnimationView) mView.findViewById(R.id.anim_cursor3);
+                img_cursor2.setAnimation("bounce_heart.json");
+                img_check.setAnimation("heart_up.json");
+                img_check.setScaleX(4);
+                img_check.setScaleY(4);
+                img_cursor2.playAnimation();
+                break;
+            case 4:
+                break;
+        }
+
         //bg_screen.setBackgroundColor(getResources().getColor(android.R.color.black));
 
         /*
@@ -211,6 +331,8 @@ public class beforeSettingActivity extends Activity {
             switch(motionEvent.getAction()){
                 case MotionEvent.ACTION_DOWN :
 
+                    ChangeSelectedBtnImg(v, true);
+
                     img_cursor2.setX(motionEvent.getRawX()-img_cursor2.getWidth()/2);
                     img_cursor2.setY(motionEvent.getRawY()-(img_cursor2.getHeight()*2)/3);
                     img_cursor2.setVisibility(View.VISIBLE);
@@ -237,14 +359,38 @@ public class beforeSettingActivity extends Activity {
                 case MotionEvent.ACTION_MOVE:
 
                     img_cursor2.setY(v.getY() + (motionEvent.getY()) - (img_cursor2.getHeight()/2));
-                    float p = 0.0008f;
-                    float tmp = img_cursor2.getY()-parentHeight/2;
+
+                    /*
+                    float p = 0.0012f;
+                    float tmpY = img_cursor2.getY()+180f;
+                    float tmp = tmpY-parentHeight/2;
+                    //float tmp = img_cursor2.getY()-parentHeight/2;
                     img_cursor2.setX(p*tmp*tmp+parentWidth/2+30f);
+                    */
+
+                    float p = 0.0009f;
+                    float tmpY = img_cursor2.getY()-(parentWidth/10*11);
+                    //float tmp = img_cursor2.getY()-parentHeight/2;
+                    img_cursor2.setX(p*tmpY*tmpY+(parentWidth/5*3));
+
+                    //Log.d("SizeRate", "ParentWidth : " + parentWidth + " / ParentHeight : " + parentHeight);
+
+                    /*
+                    float p=0.01f;
+                    float tmpY = img_cursor2.getY();
+                    float tmp = (tmpY-30)*(tmpY-30) / p + parentWidth-12;
+                    img_cursor2.setX(tmp);
+                    */
+                    //Log.d("Cursor", "Cursor X : " + img_cursor2.getX());
 
                     break;
                 case MotionEvent.ACTION_UP:
-
-                    if(img_cursor2.getY() < 650){
+                    ChangeSelectedBtnImg(v, false);
+                    /*
+                    Log.d("ScreenSize", "cursorY : " + img_cursor2.getY() + " | UpArea : " + ScreenSize.y/4 + " | DownArea : " + ScreenSize.y/4*3
+                    + " | TotalScreenSize : " + ScreenSize.y);
+                    */
+                    if(img_cursor2.getY() < ScreenSize.y/10*4 ){
                         switch(inputNum){
                             case "" : inputNum = "h"; break;
                             case "a" : inputNum =""; break;
@@ -256,7 +402,7 @@ public class beforeSettingActivity extends Activity {
                         if(inputNum!="")
                             enterInput(inputNum);
 
-                    }else if(img_cursor2.getY() > 1600){
+                    }else if(img_cursor2.getY() > ScreenSize.y/5*4){
                         if(inputNum!="")
                             enterInput(inputNum);
                     }
@@ -272,6 +418,47 @@ public class beforeSettingActivity extends Activity {
             }
             return true;
         }
+    }
+
+    void ChangeSelectedBtnImg(View v, Boolean selected){
+        if(selected){
+            switch(btnTheme){
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    v.setBackgroundResource(R.drawable.clover_cute_selected);
+                    break;
+            }
+        }else{
+            switch(btnTheme){
+                case 1:
+                    mImg1.setBackgroundResource(R.drawable.moon_100);
+                    mImg2.setBackgroundResource(R.drawable.moon_75);
+                    mImg3.setBackgroundResource(R.drawable.moon_50);
+                    mImg4.setBackgroundResource(R.drawable.moon_25);
+                    mImg5.setBackgroundResource(R.drawable.moon_0);
+                    break;
+                case 2:
+                    v.setBackgroundResource(R.drawable.star_neon);
+                    break;
+                case 3:
+                    v.setBackgroundResource(R.drawable.snowflake);
+                    break;
+                case 4:
+                    v.setBackgroundResource(R.drawable.dot_inside_a_circle);
+                    break;
+                case 5:
+                    v.setBackgroundResource(R.drawable.clover_cute_comp);
+                    break;
+            }
+        }
+
     }
 
     void CheckPW() {
@@ -290,7 +477,8 @@ public class beforeSettingActivity extends Activity {
         Log.d("input", "SIZE ? = " + inputPw.length() + "/"+pw.length());
 
         if(wrongPw){
-
+            if(bgTheme==5)
+                img_input.setImageResource(R.drawable.eyes_wrong2);
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -312,6 +500,7 @@ public class beforeSettingActivity extends Activity {
                 getApplicationContext(),//현재제어권자
                 SettingsActivity.class); // 이동할 컴포넌트
         startActivity(intent);
+        //overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right);
         finish();
     }
 
@@ -319,9 +508,17 @@ public class beforeSettingActivity extends Activity {
 
         inputPw = "";
         if(pwSize==2) {
-            img_input.setImageResource(R.drawable.input_2pw0);
+            if(bgTheme==5){
+                img_input.setImageResource(R.drawable.eyes_0);
+            }else {
+                img_input.setImageResource(R.drawable.input_2pw0);
+            }
         }else if(pwSize==4){
-            img_input.setImageResource(R.drawable.input_4pw0);
+            if(bgTheme==5){
+                img_input.setImageResource(R.drawable.eyes_0);
+            }else {
+                img_input.setImageResource(R.drawable.input_4pw0);
+            }
         }
     }
 
@@ -330,33 +527,60 @@ public class beforeSettingActivity extends Activity {
         img_check.setVisibility(View.VISIBLE);
         img_check.setX(img_cursor2.getX());
         img_check.setY(img_cursor2.getY());
+        if(effTheme == 3){
+            img_check.setY(img_check.getY()-100f);
+        }
         animator.start();
         Log.d("Input2", "INPUT : "+inputPw);
 
         if(pwSize==2) {
             if (inputPw.length() == 1) {
-                img_input.setImageResource(R.drawable.input_2pw1);
+                if(bgTheme==5)
+                    img_input.setImageResource(R.drawable.eyes_2);
+                else
+                    img_input.setImageResource(R.drawable.input_2pw1);
             } else if (inputPw.length() == 2) {
-                img_input.setImageResource(R.drawable.input_2pw2);
+                if(bgTheme==5)
+                    img_input.setImageResource(R.drawable.eyes_4);
+                else
+                    img_input.setImageResource(R.drawable.input_2pw2);
             } else {
-                img_input.setImageResource(R.drawable.input_2pw0);
+                if(bgTheme==5)
+                    img_input.setImageResource(R.drawable.eyes_0);
+                else
+                    img_input.setImageResource(R.drawable.input_2pw0);
             }
         }else {
             switch (inputPw.length()) {
                 case 0:
-                    img_input.setImageResource(R.drawable.input_4pw0);
+                    if(bgTheme==5)
+                        img_input.setImageResource(R.drawable.eyes_0);
+                    else
+                        img_input.setImageResource(R.drawable.input_4pw0);
                     break;
                 case 1:
-                    img_input.setImageResource(R.drawable.input_4pw1);
+                    if(bgTheme==5)
+                        img_input.setImageResource(R.drawable.eyes_1);
+                    else
+                        img_input.setImageResource(R.drawable.input_4pw1);
                     break;
                 case 2:
-                    img_input.setImageResource(R.drawable.input_4pw2);
+                    if(bgTheme==5)
+                        img_input.setImageResource(R.drawable.eyes_2);
+                    else
+                        img_input.setImageResource(R.drawable.input_4pw2);
                     break;
                 case 3:
-                    img_input.setImageResource(R.drawable.input_4pw3);
+                    if(bgTheme==5)
+                        img_input.setImageResource(R.drawable.eyes_3);
+                    else
+                        img_input.setImageResource(R.drawable.input_4pw3);
                     break;
                 case 4:
-                    img_input.setImageResource(R.drawable.input_4pw4);
+                    if(bgTheme==5)
+                        img_input.setImageResource(R.drawable.eyes_4);
+                    else
+                        img_input.setImageResource(R.drawable.input_4pw4);
                     break;
             }
         }

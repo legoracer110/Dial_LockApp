@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">DialLock</string>
+
+    <string name="setting_title">설정</string>
+    <string name="setting_small_title1">패스워드 설정</string>
+    <string name="setting_small_title2">잠금화면 사용</string>
+    <string name="setting_small_title3">PW 자리수</string>
+    <string name="setting_small_title4">패스워드 입력</string>
+    <string name="setting_small_title5">패스워드 확인</string>
+
+    <string name="setting_small_option1">   Yes</string>
+    <string name="setting_small_option2">   No</string>
+    <string name="setting_small_option3">   2자리</string>
+    <string name="setting_small_option4">   4자리</string>
+    <string name="setting_enter">입력</string>
+
+    <string name="setting_small_desc1">Dialog 매뉴얼</string>.
+    <string name="setting_small_desc2">패스워드 일치여부를 확인해주세요</string>.
+
+    <string name="setting_next">다음</string>
+    <string name="setting_before">이전</string>
 </resources>

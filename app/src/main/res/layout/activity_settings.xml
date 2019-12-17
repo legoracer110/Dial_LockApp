@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <LinearLayout
+    tools:context=".MainActivity"
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,11 +15,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="55dp"
-
+            android:id="@+id/textView2"
             android:background="#9E9E9E"
             android:gravity="center"
-            android:padding="8dp"
-            android:text="설정"
+            android:padding="2dp"
+            android:text="@string/setting_title"
             android:textColor="#ffffff"
             android:textSize="20sp" />
 
@@ -33,174 +28,179 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="4dp"
+
             android:layout_marginBottom="4dp"
             android:background="#D5D5D5"
             android:gravity="center"
 
-            android:text="패스워드 설정"
+            android:text="@string/setting_small_title1"
             android:textColor="#ffffff"
             android:textSize="18sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
 
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="123dp"
-                android:layout_height="33dp"
+                android:layout_height="28dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="4dp"
                 android:gravity="center"
-                android:text="잠금화면 사용"
+                android:text="@string/setting_small_title2"
                 android:textColor="#000000"
-                android:textSize="17sp" />
+                android:textSize="14sp" />
 
             <CheckBox
                 android:id="@+id/check_use"
-                android:layout_width="wrap_content"
-                android:layout_height="33dp"
+                android:layout_width="80dp"
+                android:layout_height="28dp"
+                android:layout_marginLeft="50dp"
                 android:layout_marginTop="4dp"
+                android:button="@drawable/my_checkbox"
                 android:checked="true"
-                android:text="   Yes"
+                android:text="@string/setting_small_option1"
                 android:textColor="#000000"
-                android:textSize="17sp" />
+                android:textSize="14sp" />
 
             <CheckBox
                 android:id="@+id/check_dont"
                 android:layout_width="wrap_content"
-                android:layout_height="33dp"
-                android:layout_marginLeft="42dp"
+                android:layout_height="28dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="4dp"
-                android:text="   No"
+                android:button="@drawable/my_checkbox"
+                android:text="@string/setting_small_option2"
                 android:textColor="#000000"
-                android:textSize="17sp" />
+                android:textSize="14sp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="123dp"
-                android:layout_height="33dp"
+                android:layout_height="28dp"
                 android:layout_marginLeft="5dp"
                 android:gravity="center"
-                android:text="PW 자리수"
+                android:text="@string/setting_small_title3"
                 android:textColor="#000000"
-                android:textSize="17sp" />
+                android:textSize="14sp" />
 
             <CheckBox
                 android:id="@+id/pwSize2"
 
-                android:layout_width="wrap_content"
-                android:layout_height="33dp"
-                android:checked="true"
-                android:text="   2자리"
+                android:layout_width="80dp"
+                android:layout_height="28dp"
+                android:layout_marginLeft="50dp"
+                android:button="@drawable/my_checkbox"
+                android:checked="false"
+                android:text="@string/setting_small_option3"
                 android:textColor="#000000"
-                android:textSize="17sp" />
+                android:textSize="14sp" />
 
             <CheckBox
                 android:id="@+id/pwSize4"
 
 
                 android:layout_width="wrap_content"
-                android:layout_height="33dp"
-                android:layout_marginLeft="30dp"
-                android:text="   4자리"
+                android:layout_height="28dp"
+                android:layout_marginLeft="10dp"
+                android:button="@drawable/my_checkbox"
+                android:checked="true"
+                android:text="@string/setting_small_option4"
                 android:textColor="#000000"
-                android:textSize="17sp" />
+                android:textSize="14sp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="123dp"
-                android:layout_height="33dp"
+                android:layout_height="28dp"
                 android:layout_marginLeft="5dp"
                 android:gravity="center"
-                android:text="패스워드 입력"
+                android:text="@string/setting_small_title4"
                 android:textColor="#000000"
-                android:textSize="17sp" />
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/btn_inputPw"
                 android:layout_width="60dp"
-                android:layout_height="33dp"
-
-                android:text="입력" />
+                android:layout_height="30dp"
+                android:layout_marginLeft="40dp"
+                android:text="@string/setting_enter"
+                android:textSize="10sp" />
 
             <TextView
                 android:id="@+id/input_pw"
-                android:layout_width="170dp"
-                android:layout_height="33dp"
+                android:layout_width="100dp"
+                android:layout_height="28dp"
                 android:layout_marginLeft="5dp"
 
                 android:text=""
                 android:textAlignment="center"
-                android:textSize="17sp" />
+                android:textSize="15sp" />
         </LinearLayout>
 
         <TextView
-            android:id="@+id/txtView"
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:layout_marginTop="4dp"
+            android:layout_width="144dp"
+            android:layout_height="39dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:background="#d1d1d1"
             android:gravity="center"
-            android:text="패스워드 설명"
+            android:text="@string/setting_small_desc1"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
 
-            />
-
-        <LinearLayout
+        <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="131dp"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp">
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-                android:background="@drawable/happy" />
+                <ImageView
+                    android:id="@+id/desc1"
+                    android:layout_width="290dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/desc1_re" />
 
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
+                <ImageView
+                    android:id="@+id/desc2"
+                    android:layout_width="290dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginRight="3dp"
+                    android:background="@drawable/desc2_re" />
 
+                <ImageView
+                    android:id="@+id/desc3"
+                    android:layout_width="290dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center_horizontal"
 
-                android:background="@drawable/happy" />
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-
-
-                android:background="@drawable/happy" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/des_backuppin"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:layout_marginTop="4dp"
-            android:gravity="center"
-            android:text="패스워드 분실시 잠금해제를 위한 PIN입니다.\n 별도로 보관하시는 것을 추천합니다."
-
-            />
+                    android:background="@drawable/desc3_re" />
+            </LinearLayout>
+        </HorizontalScrollView>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -210,34 +210,45 @@
 
             <TextView
                 android:layout_width="123dp"
-                android:layout_height="33dp"
+                android:layout_height="28dp"
                 android:layout_marginLeft="5dp"
                 android:gravity="center"
-                android:text="패스워드 확인"
+                android:text="@string/setting_small_title5"
                 android:textColor="#000000"
-                android:textSize="17sp" />
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/btn_checkPw"
                 android:layout_width="60dp"
-                android:layout_height="33dp"
-
-                android:text="입력" />
+                android:layout_height="30dp"
+                android:layout_marginLeft="30dp"
+                android:text="@string/setting_enter"
+                android:textSize="10sp" />
 
             <TextView
                 android:id="@+id/re_pw"
-                android:layout_width="170dp"
-                android:layout_height="33dp"
+                android:layout_width="100dp"
+                android:layout_height="28dp"
                 android:layout_marginLeft="5dp"
                 android:inputType="numberPassword"
                 android:text=""
-                android:textSize="17sp" />
+                android:textSize="15sp" />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/error"
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:gravity="center_horizontal"
+            android:text="@string/setting_small_desc2"
+            android:textColor="@color/colorAccent"
+            android:textSize="15sp"
+            android:visibility="invisible" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="7dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -257,7 +268,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="140dp"
+                android:layout_height="match_parent"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal">
 
@@ -265,15 +276,12 @@
                     android:id="@+id/confirm"
                     android:layout_width="110dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
+                    android:layout_margin="10dp"
 
-                    android:text="다음"
+                    android:text="@string/setting_next"
                     android:textSize="15sp" />
 
             </LinearLayout>
 
         </LinearLayout>
-
-
-    </LinearLayout>
-</ScrollView>
+</LinearLayout>

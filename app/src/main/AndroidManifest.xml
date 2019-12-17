@@ -57,6 +57,27 @@
             android:label="@string/app_name">
         </activity>
 
+        <activity android:name=".pwSettingActivity"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+
+            android:label="@string/app_name">
+        </activity>
+
+        <activity android:name=".SettingsActivity2"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+
+            android:label="@string/app_name">
+        </activity>
+
+        <activity android:name=".SettingsActivity3"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+
+            android:label="@string/app_name">
+        </activity>
+
         <service android:name=".LockScreenService" />
 
         <receiver

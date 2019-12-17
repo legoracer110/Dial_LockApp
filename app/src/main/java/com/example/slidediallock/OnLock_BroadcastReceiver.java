@@ -16,10 +16,6 @@ public class OnLock_BroadcastReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         if(intent.getAction().equals(Intent.ACTION_SCREEN_ON))
         {
-
-            //Intent i = new Intent(context, LockScreenService.class);
-            //context.startService(i);
-
             Intent i = new Intent(context, DialLockActivity.class);
 
             i.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);

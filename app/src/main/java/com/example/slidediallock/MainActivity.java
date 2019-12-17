@@ -115,7 +115,7 @@ public class MainActivity extends Activity {
 
             } else {
 
-                //startActivity(new Intent(MainActivity.this, preLockScreenActivity.class));
+                startActivity(new Intent(MainActivity.this, DialLockActivity.class));
             }
         }
     }
