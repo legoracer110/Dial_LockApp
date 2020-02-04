@@ -153,16 +153,17 @@
                 android:textSize="15sp" />
         </LinearLayout>
 
-        <TextView
-            android:layout_width="144dp"
-            android:layout_height="39dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:background="#d1d1d1"
-            android:gravity="center"
-            android:text="@string/setting_small_desc1"
-            android:textColor="#ffffff"
-            android:textSize="16sp" />
+    <TextView
+        android:id="@+id/title_manual"
+        android:layout_width="144dp"
+        android:layout_height="39dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/aclonica"
+        android:gravity="center"
+        android:text="@string/setting_small_desc1"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
 
         <HorizontalScrollView
             android:layout_width="match_parent"
@@ -177,7 +178,7 @@
 
                 <ImageView
                     android:id="@+id/desc1"
-                    android:layout_width="290dp"
+                    android:layout_width="310dp"
                     android:layout_height="150dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="15dp"
@@ -186,7 +187,7 @@
 
                 <ImageView
                     android:id="@+id/desc2"
-                    android:layout_width="290dp"
+                    android:layout_width="310dp"
                     android:layout_height="150dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginRight="3dp"
@@ -194,7 +195,7 @@
 
                 <ImageView
                     android:id="@+id/desc3"
-                    android:layout_width="290dp"
+                    android:layout_width="310dp"
                     android:layout_height="150dp"
                     android:layout_gravity="center_horizontal"
 

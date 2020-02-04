@@ -1,4 +1,4 @@
-package com.example.slidediallock;
+package com.diallock.slidediallock;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -8,7 +8,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.util.Log;
+
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -34,7 +34,7 @@ public class MainActivity extends Activity {
         Boolean isRun = sf.getBoolean("firstBoot", false);
 
         if(!isRun) {
-            Log.d("Activity", "First Boot!");
+            //Log.d("Activity", "First Boot!");
             SharedPreferences sharedPreferences = getSharedPreferences("sFile",MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putBoolean("firstBoot",true);
@@ -46,7 +46,7 @@ public class MainActivity extends Activity {
 
         }else{
 
-            Log.d("Activity", "Not First Boot!");
+            //Log.d("Activity", "Not First Boot!");
 
             setContentView(R.layout.temp);
 

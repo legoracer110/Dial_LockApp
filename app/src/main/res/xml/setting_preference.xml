@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/app_name"
+    android:background="@color/colorPrimary">
+
+    <PreferenceCategory android:title="잠금 패스워드 설정">
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="isLock"
+            android:summary="화면 활성화시 패스워드 잠금을 사용합니다"
+            android:title="잠금화면 사용" />
+
+        <ListPreference
+            android:defaultValue="2"
+            android:dependency="isLock"
+            android:entries="@array/setting_pwsize"
+            android:entryValues="@array/setting_pwsize_value"
+            android:key="tmpPwSize"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null"
+            android:summary="패스워드 자리 수 설정입니다."
+            android:title="PW 자리수" />
+
+        <Preference
+            android:dependency="isLock"
+            android:key="tmpPw"
+            android:summary="설정할 패스워드를 입력합니다."
+            android:title="패스워드 입력">
+            <intent android:action="android.provider.Settings.SET_PW" />
+        </Preference>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="다이얼락 사용법">
+        <Preference
+            android:key="pwDesc"
+            android:title="DIAL-LOCK 사용법">
+            <intent android:action="android.provider.Settings.DESC" />
+        </Preference>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="잠금화면 테마 설정">
+        <Preference
+            android:dependency="isLock"
+            android:key="setTheme"
+            android:summary="잠금화면 테마를 설정합니다."
+            android:title="잠금화면 테마 설정">
+            <intent android:action="android.provider.Settings.SET_THEME" />
+        </Preference>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="기타">
+        <Preference
+            android:key="pf_no_ads"
+            android:summary="3000원 인앱 결제"
+            android:title="광고없이 앱 이용하기">
+            <intent android:action="android.provider.Settings.NO_ADS" />
+        </Preference>
+
+        <Preference
+            android:key="pf_review"
+            android:summary="구글 플레이스토어로 이동"
+            android:title="앱 평가하기">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://play.google.com/store/apps/details?id=com.diallock.slidediallock"/>
+        </Preference>
+
+    </PreferenceCategory>
+</PreferenceScreen>

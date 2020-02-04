@@ -1,28 +1,23 @@
-package com.example.slidediallock;
+package com.diallock.slidediallock;
 
 import android.animation.ValueAnimator;
 import android.app.Activity;
-import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.PixelFormat;
 import android.graphics.Point;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Vibrator;
-import android.util.Log;
+
 import android.view.Display;
-import android.view.Gravity;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import com.airbnb.lottie.LottieAnimationView;
+
+import androidx.appcompat.app.AlertDialog;
 
 public class pwSettingActivity extends Activity {
 
@@ -30,6 +25,8 @@ public class pwSettingActivity extends Activity {
 
     private String inputNum;
     private String inputPw;
+
+    private String tmp_inputPw;
 
     //private LinearLayout bg_screen;
 
@@ -50,6 +47,8 @@ public class pwSettingActivity extends Activity {
     private ValueAnimator animator;
 
     private static final String IMAGEVIEW_TAG = "드래그 이미지";
+
+    private Intent intent;
 
     ////////////// 해상도 구하기 ////////////////
     int standardSize_X, standardSize_Y;
@@ -102,15 +101,20 @@ public class pwSettingActivity extends Activity {
         ScreenSize = getScreenSize(this);
 
         SharedPreferences sf = getSharedPreferences("sFile",MODE_PRIVATE);
-        pwSize = sf.getInt("tmpPwSize", 4);
-        isCheck = sf.getBoolean("pwSet", true);
+        pwSize = sf.getInt("tmpPwSize", 2);
+        isCheck = sf.getBoolean("isCheck", false);
+
         inputPw = "";
 
         img_input = (ImageView) findViewById(R.id.input_img);
-        if(pwSize==2)
+        if(pwSize==2) {
             img_input.setImageResource(R.drawable.input_2pw0);
-        else
+            tmp_inputPw = sf.getString("tmpPw", "bb");
+        }
+        else {
             img_input.setImageResource(R.drawable.input_4pw0);
+            tmp_inputPw = sf.getString("tmpPw", "0000");
+        }
 
         mImg1 = (ImageView) findViewById(R.id.img1);
         mImg1.setTag(IMAGEVIEW_TAG);
@@ -151,6 +155,26 @@ public class pwSettingActivity extends Activity {
         mImg4.setClickable(true);
         mImg5.setOnTouchListener(new pwSettingActivity.TouchListener());
         mImg5.setClickable(true);
+
+        if(isCheck){
+
+            //Log.d("check", "AlertDialog");
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            builder.setTitle("패스워드 재확인").setMessage("패스워드를 재입력해주세요.");
+
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener(){
+                @Override
+                public void onClick(DialogInterface dialog, int id)
+                {
+                }
+            });
+
+            AlertDialog alertDialog = builder.create();
+
+            alertDialog.show();
+        }
     }
 
     class TouchListener implements View.OnTouchListener{
@@ -231,7 +255,7 @@ public class pwSettingActivity extends Activity {
         img_check.setX(img_cursor2.getX());
         img_check.setY(img_cursor2.getY());
         animator.start();
-        Log.d("Input2", "INPUT : "+inputPw);
+        //Log.d("Input2", "INPUT : "+inputPw);
 
         if(pwSize==2) {
             if (inputPw.length() == 1) {
@@ -266,20 +290,76 @@ public class pwSettingActivity extends Activity {
     }
 
     void pwConfirm(){
-        SharedPreferences sharedPreferences = getSharedPreferences("sFile", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        if(isCheck)
+
+        //Log.d("check", "isCheck : " + isCheck);
+
+        if(isCheck) {
+            //editor.putString("tmpPw", inputPw);
+            CheckInputPw();     //  확인이니까 비밀번호 일치여부 확인
+
+        }
+        else {
+            // 처음 입력이니깐 확인단계로 넘어가
+            // 다시 (현Activity) 재시작
+            SharedPreferences sharedPreferences = getSharedPreferences("sFile", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean("isCheck", true);
             editor.putString("tmpPw", inputPw);
-        else
-            editor.putString("pwCheck", inputPw);
-        editor.putBoolean("pwSet", false);
+            editor.commit();
+
+            //Log.d("check", "restartActivity");
+
+            intent = getIntent();
+            finish();
+            startActivity(intent);
+        }
+    }
+
+    void CheckInputPw(){
+        boolean wrongPw = false;
+
+        //Log.d("input", "INPUT PW2 = " + inputPw);
+        //Log.d("input", "REAL PW = " + pw);
+
+        if(!inputPw.equals(tmp_inputPw))
+            wrongPw = true;
+
+        SharedPreferences sf = getSharedPreferences("sFile", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sf.edit();
+
+        editor.putBoolean("isCheck", false);
         editor.commit();
 
-        Intent intent = new Intent(
-                getApplicationContext(),//현재제어권자
-                SettingsActivity.class); // 이동할 컴포넌트
-        startActivity(intent);
-        finish();
+        if(wrongPw){
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            builder.setTitle("패스워드 오류").setMessage("패스워드가 일치하지 않습니다.\n패스워드를 재입력해주세요.");
+
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener(){
+                @Override
+                public void onClick(DialogInterface dialog, int id)
+                {
+                    intent = getIntent();
+                    finish();
+                    startActivity(intent);
+                }
+            });
+
+            AlertDialog alertDialog = builder.create();
+
+            alertDialog.show();
+
+
+        }else{
+
+            intent = new Intent(
+                    getApplicationContext(),//현재제어권자
+                    SettingsActivity.class); // 이동할 컴포넌트
+            finish();
+            startActivity(intent);
+        }
+
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.example.slidediallock;
+package com.diallock.slidediallock;
 
 import android.app.Service;
 import android.content.BroadcastReceiver;

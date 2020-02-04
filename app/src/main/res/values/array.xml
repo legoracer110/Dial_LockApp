@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="setting_pwsize">
+        <item>2자리</item>
+        <item>4자리</item>
+    </string-array>
+    <string-array name="setting_pwsize_value">
+        <item>2</item>
+        <item>4</item>
+    </string-array>
+</resources>

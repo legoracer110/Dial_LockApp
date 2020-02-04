@@ -21,33 +21,21 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
 
-            android:background="#9E9E9E"
-            android:gravity="center"
+            android:background="#333333"
+            android:gravity="center_vertical"
             android:padding="2dp"
-            android:text="설정"
+            android:text="  DialLock 테마 설정"
             android:textColor="#ffffff"
             android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="#D5D5D5"
-            android:gravity="center"
-
-            android:text="테마 설정"
-            android:textColor="#ffffff"
-            android:textSize="18sp" />
-
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="639dp">
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/background"
                 android:layout_width="match_parent"
-                android:layout_height="611dp"
+                android:layout_height="match_parent"
                 android:background="@drawable/orora" />
 
             <ImageView
@@ -55,8 +43,8 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_gravity="right"
-                android:layout_marginRight="50dp"
                 android:layout_marginTop="100dp"
+                android:layout_marginRight="50dp"
                 android:background="@drawable/moon_100" />
 
             <ImageView
@@ -64,8 +52,8 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_gravity="right"
-                android:layout_marginRight="100dp"
                 android:layout_marginTop="165dp"
+                android:layout_marginRight="100dp"
                 android:background="@drawable/moon_75" />
 
             <ImageView
@@ -73,8 +61,8 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_gravity="right"
-                android:layout_marginRight="120dp"
                 android:layout_marginTop="240dp"
+                android:layout_marginRight="120dp"
                 android:background="@drawable/moon_50" />
 
             <ImageView
@@ -82,8 +70,8 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_gravity="right"
-                android:layout_marginRight="100dp"
                 android:layout_marginTop="315dp"
+                android:layout_marginRight="100dp"
                 android:background="@drawable/moon_25" />
 
             <ImageView
@@ -91,8 +79,8 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_gravity="right"
-                android:layout_marginRight="50dp"
                 android:layout_marginTop="380dp"
+                android:layout_marginRight="50dp"
                 android:background="@drawable/moon_0" />
 
             <com.airbnb.lottie.LottieAnimationView
@@ -105,8 +93,7 @@
                 android:visibility="visible"
                 app:lottie_autoPlay="true"
                 app:lottie_fileName="pw_check.json"
-                app:lottie_loop="true"
-            />
+                app:lottie_loop="true" />
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/imgEff2"
@@ -118,8 +105,7 @@
                 android:visibility="invisible"
                 app:lottie_autoPlay="true"
                 app:lottie_fileName="fireworks_ice_x2.json"
-                app:lottie_loop="true"
-                />
+                app:lottie_loop="true" />
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/imgEff3"
@@ -131,104 +117,97 @@
                 android:visibility="invisible"
                 app:lottie_autoPlay="true"
                 app:lottie_fileName="heart_up.json"
-                app:lottie_loop="true"
-                />
+                app:lottie_loop="true" />
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/imgEff4"
                 android:layout_width="110dp"
                 android:layout_height="110dp"
                 android:layout_gravity="right"
-                android:layout_marginRight="30dp"
                 android:layout_marginTop="340dp"
+                android:layout_marginRight="30dp"
                 android:visibility="invisible"
                 app:lottie_autoPlay="true"
                 app:lottie_fileName="planet_check.json"
-                app:lottie_loop="true"
-                />
+                app:lottie_loop="true" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="616dp"
                 android:orientation="vertical">
 
+                <TextView
+                    android:layout_width="123dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="20dp"
+                    android:background="#33D5D5D5"
+                    android:gravity="center"
+                    android:text="잔잔한 테마"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="4dp"
 
                     android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="84dp"
-                        android:layout_height="33dp"
+                    <CheckBox
+                        android:id="@+id/calm1"
+                        android:layout_width="80dp"
+                        android:layout_height="19dp"
+                        android:layout_marginTop="4dp"
+                        android:button="@drawable/my_checkbox"
+                        android:checked="false"
+                        android:text=" Fantasy"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp" />
+
+                    <CheckBox
+                        android:id="@+id/calm2"
+                        android:layout_width="80dp"
+                        android:layout_height="19dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginTop="4dp"
-                        android:gravity="center"
-                        android:text="테마 프리셋"
-                        android:textColor="#ffffff"
-                        android:textSize="15sp" />
-
-                    <CheckBox
-                        android:id="@+id/preset1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="33dp"
-                        android:layout_marginTop="4dp"
                         android:button="@drawable/my_checkbox"
                         android:checked="false"
-                        android:text="Orora"
+                        android:text=" Milkyway"
                         android:textColor="#ffffff"
-                        android:textSize="14sp" />
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="4dp"
+
+                    android:orientation="horizontal">
 
                     <CheckBox
-                        android:id="@+id/preset2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="33dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="4dp"
+                        android:id="@+id/calm3"
+                        android:layout_width="80dp"
+                        android:layout_height="19dp"
                         android:button="@drawable/my_checkbox"
                         android:checked="false"
-                        android:text="Neon"
+                        android:text=" X-mas"
                         android:textColor="#ffffff"
-                        android:textSize="14sp" />
+                        android:textSize="13sp" />
 
                     <CheckBox
-                        android:id="@+id/preset3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="33dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="4dp"
+                        android:id="@+id/calm4"
+                        android:layout_width="70dp"
+                        android:layout_height="19dp"
+                        android:layout_marginLeft="5dp"
                         android:button="@drawable/my_checkbox"
                         android:checked="false"
-                        android:text="Winter"
+                        android:text=" 투명"
                         android:textColor="#ffffff"
-                        android:textSize="14sp" />
-
-                    <CheckBox
-                        android:id="@+id/preset4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="33dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="4dp"
-
-                        android:button="@drawable/my_checkbox"
-                        android:checked="false"
-                        android:text="Eyes"
-                        android:textColor="#ffffff"
-                        android:textSize="14sp" />
-
-                    <CheckBox
-                        android:id="@+id/preset5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="33dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_weight="1"
-                        android:button="@drawable/my_checkbox"
-                        android:checked="false"
-                        android:text="Lover"
-                        android:textColor="#ffffff"
-                        android:textSize="14sp" />
+                        android:textSize="13sp" />
 
                 </LinearLayout>
 
@@ -239,137 +218,31 @@
                     android:layout_marginTop="20dp"
                     android:background="#33D5D5D5"
                     android:gravity="center"
-                    android:text="버튼 테마"
+                    android:text="분위기 있는 테마"
                     android:textColor="#ffffff"
                     android:textSize="15sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
                     android:layout_marginLeft="20dp"
+                    android:layout_marginTop="4dp"
 
                     android:orientation="horizontal">
 
                     <CheckBox
-                        android:id="@+id/btn_theme1"
-                        android:layout_width="70dp"
+                        android:id="@+id/mood1"
+                        android:layout_width="80dp"
                         android:layout_height="19dp"
                         android:layout_marginTop="4dp"
                         android:button="@drawable/my_checkbox"
                         android:checked="false"
-                        android:text=" Moon"
+                        android:text=" Arendelle "
                         android:textColor="#ffffff"
                         android:textSize="13sp" />
 
                     <CheckBox
-                        android:id="@+id/btn_theme2"
-                        android:layout_width="70dp"
-                        android:layout_height="19dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="4dp"
-                        android:button="@drawable/my_checkbox"
-                        android:checked="false"
-                        android:text=" Star"
-                        android:textColor="#ffffff"
-                        android:textSize="13sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginLeft="20dp"
-
-                    android:orientation="horizontal">
-
-                    <CheckBox
-                        android:id="@+id/btn_theme3"
-                        android:layout_width="70dp"
-                        android:layout_height="19dp"
-                        android:button="@drawable/my_checkbox"
-                        android:checked="false"
-                        android:text=" Snow"
-                        android:textColor="#ffffff"
-                        android:textSize="13sp" />
-
-                    <CheckBox
-                        android:id="@+id/btn_theme4"
-                        android:layout_width="70dp"
-                        android:layout_height="19dp"
-                        android:layout_marginLeft="5dp"
-                        android:button="@drawable/my_checkbox"
-                        android:checked="false"
-                        android:text="기본"
-                        android:textColor="#ffffff"
-                        android:textSize="13sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginLeft="20dp"
-
-                    android:orientation="horizontal">
-
-                    <CheckBox
-                        android:id="@+id/btn_theme5"
-                        android:layout_width="70dp"
-                        android:layout_height="19dp"
-                        android:button="@drawable/my_checkbox"
-                        android:checked="false"
-                        android:text=" Clover"
-                        android:textColor="#ffffff"
-                        android:textSize="13sp" />
-
-                    <CheckBox
-                        android:id="@+id/btn_theme6"
-                        android:layout_width="70dp"
-                        android:layout_height="19dp"
-                        android:layout_marginLeft="5dp"
-                        android:button="@drawable/my_checkbox"
-                        android:checked="false"
-                        android:text=" Theme"
-                        android:textColor="#ffffff"
-                        android:textSize="13sp" />
-
-                </LinearLayout>
-                <TextView
-                    android:layout_width="123dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="30dp"
-                    android:background="#33D5D5D5"
-                    android:gravity="center"
-                    android:text="배경화면"
-                    android:textColor="#ffffff"
-                    android:textSize="15sp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginLeft="20dp"
-
-                    android:orientation="horizontal">
-
-
-                    <CheckBox
-                        android:id="@+id/bg_theme1"
-                        android:layout_width="70dp"
-                        android:layout_height="19dp"
-                        android:layout_marginTop="4dp"
-                        android:button="@drawable/my_checkbox"
-                        android:checked="false"
-                        android:text=" Orora"
-                        android:textColor="#ffffff"
-                        android:textSize="13sp" />
-
-                    <CheckBox
-                        android:id="@+id/bg_theme2"
+                        android:id="@+id/mood2"
                         android:layout_width="70dp"
                         android:layout_height="19dp"
                         android:layout_marginLeft="5dp"
@@ -385,47 +258,55 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
                     android:layout_marginLeft="20dp"
+                    android:layout_marginTop="4dp"
 
                     android:orientation="horizontal">
 
-
                     <CheckBox
-                        android:id="@+id/bg_theme3"
-                        android:layout_width="70dp"
+                        android:id="@+id/mood3"
+                        android:layout_width="80dp"
                         android:layout_height="19dp"
                         android:button="@drawable/my_checkbox"
                         android:checked="false"
-                        android:text=" Snow"
+                        android:text=" Frozen"
                         android:textColor="#ffffff"
                         android:textSize="13sp" />
 
                     <CheckBox
-                        android:id="@+id/bg_theme4"
+                        android:id="@+id/mood4"
                         android:layout_width="70dp"
                         android:layout_height="19dp"
                         android:layout_marginLeft="5dp"
                         android:button="@drawable/my_checkbox"
                         android:checked="false"
-                        android:text=" X-mas"
                         android:textColor="#ffffff"
                         android:textSize="13sp" />
 
                 </LinearLayout>
 
+                <TextView
+                    android:layout_width="123dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="20dp"
+                    android:background="#33D5D5D5"
+                    android:gravity="center"
+                    android:text="귀여운 테마"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
                     android:layout_marginLeft="20dp"
+                    android:layout_marginTop="4dp"
 
                     android:orientation="horizontal">
 
-
                     <CheckBox
-                        android:id="@+id/bg_theme5"
-                        android:layout_width="70dp"
+                        android:id="@+id/cute1"
+                        android:layout_width="80dp"
                         android:layout_height="19dp"
                         android:button="@drawable/my_checkbox"
                         android:checked="false"
@@ -434,7 +315,7 @@
                         android:textSize="13sp" />
 
                     <CheckBox
-                        android:id="@+id/bg_theme6"
+                        android:id="@+id/cute2"
                         android:layout_width="70dp"
                         android:layout_height="19dp"
                         android:layout_marginLeft="5dp"
@@ -449,30 +330,91 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
                     android:layout_marginLeft="20dp"
+                    android:layout_marginTop="4dp"
 
                     android:orientation="horizontal">
 
-
                     <CheckBox
-                        android:id="@+id/bg_theme7"
-                        android:layout_width="70dp"
+                        android:id="@+id/cute3"
+                        android:layout_width="80dp"
                         android:layout_height="19dp"
                         android:button="@drawable/my_checkbox"
                         android:checked="false"
-                        android:text=" 투명"
+                        android:text=" Shy"
                         android:textColor="#ffffff"
                         android:textSize="13sp" />
 
                     <CheckBox
-                        android:id="@+id/bg_theme8"
+                        android:id="@+id/cute4"
                         android:layout_width="70dp"
                         android:layout_height="19dp"
                         android:layout_marginLeft="5dp"
                         android:button="@drawable/my_checkbox"
                         android:checked="false"
-                        android:text=" 앨범선택"
+                        android:text=" Puppy"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="4dp"
+
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/cute5"
+                        android:layout_width="80dp"
+                        android:layout_height="19dp"
+                        android:button="@drawable/my_checkbox"
+                        android:checked="false"
+                        android:text=" Crayon"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp" />
+
+                    <CheckBox
+                        android:id="@+id/cute6"
+                        android:layout_width="75dp"
+                        android:layout_height="19dp"
+                        android:layout_marginLeft="5dp"
+                        android:button="@drawable/my_checkbox"
+                        android:checked="false"
+                        android:text=" Crayon2"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="4dp"
+
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/cute7"
+                        android:layout_width="80dp"
+                        android:layout_height="19dp"
+                        android:button="@drawable/my_checkbox"
+                        android:checked="false"
+                        android:text=" 펭수"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp" />
+
+                    <CheckBox
+                        android:id="@+id/cute8"
+                        android:layout_width="75dp"
+                        android:layout_height="19dp"
+                        android:layout_marginLeft="5dp"
+                        android:button="@drawable/my_checkbox"
+                        android:checked="false"
+                        android:text=" "
                         android:textColor="#ffffff"
                         android:textSize="13sp" />
 
@@ -492,20 +434,20 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
                     android:layout_marginLeft="20dp"
+                    android:layout_marginTop="4dp"
 
                     android:orientation="horizontal">
 
 
                     <CheckBox
                         android:id="@+id/eff_theme1"
-                        android:layout_width="70dp"
+                        android:layout_width="80dp"
                         android:layout_height="19dp"
                         android:layout_marginTop="4dp"
                         android:button="@drawable/my_checkbox"
                         android:checked="false"
-                        android:text="폭죽"
+                        android:text=" 폭죽"
                         android:textColor="#ffffff"
                         android:textSize="13sp" />
 
@@ -517,7 +459,7 @@
                         android:layout_marginTop="4dp"
                         android:button="@drawable/my_checkbox"
                         android:checked="false"
-                        android:text="아이스"
+                        android:text=" 아이스"
                         android:textColor="#ffffff"
                         android:textSize="13sp" />
 
@@ -526,19 +468,19 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
                     android:layout_marginLeft="20dp"
+                    android:layout_marginTop="4dp"
 
                     android:orientation="horizontal">
 
 
                     <CheckBox
                         android:id="@+id/eff_theme3"
-                        android:layout_width="70dp"
+                        android:layout_width="80dp"
                         android:layout_height="19dp"
                         android:button="@drawable/my_checkbox"
                         android:checked="false"
-                        android:text="하트"
+                        android:text=" 하트"
                         android:textColor="#ffffff"
                         android:textSize="13sp" />
 
@@ -549,19 +491,11 @@
                         android:layout_marginLeft="5dp"
                         android:button="@drawable/my_checkbox"
                         android:checked="false"
-                        android:text="Moon"
+                        android:text=" Moon"
                         android:textColor="#ffffff"
                         android:textSize="13sp" />
 
                 </LinearLayout>
-
-                <ImageView
-                    android:id="@+id/imageView8"
-                    android:layout_width="64dp"
-                    android:layout_height="21dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/page2_re" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -571,19 +505,11 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/before"
-                        android:layout_width="110dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
-                        android:text="이전"
-                        android:textSize="15sp" />
-
-                    <Button
                         android:id="@+id/next"
                         android:layout_width="110dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
-                        android:text="다음"
+                        android:text="확 인"
                         android:textSize="15sp" />
                 </LinearLayout>
 

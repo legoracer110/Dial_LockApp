@@ -1,87 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.slidediallock">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.diallock.slidediallock">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.android.vending.BILLING" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.VIBRATE" />
-
-    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
-    <!-- camera, gallery -->
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-feature android:name="android.hardware.camera2"/>
+    <supports-screens
+        android:smallScreens="true"
+        android:normalScreens="true"
+        android:largeScreens="true"
+        android:xlargeScreens="true"/>
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/icon_square"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/icon_circle"
         android:supportsRtl="true"
+        tools:replace="android:appComponentFactory"
+        android:appComponentFactory="whateverString"
         android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
 
-        <activity android:name=".MainActivity"
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/admob_app_id"/>
+
+        <activity
+            android:name="com.diallock.slidediallock.MainActivity"
             android:excludeFromRecents="true"
-            android:launchMode="singleTask"
             android:label="@string/app_name"
-            >
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".DialLockActivity"
+        <activity
+            android:name="com.diallock.slidediallock.DialLockActivity"
             android:excludeFromRecents="true"
-            android:launchMode="singleTask"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"></activity>
+        <activity
+            android:name="com.diallock.slidediallock.beforeSettingActivity"
+            android:excludeFromRecents="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTask">
+        </activity>
+        <activity
+            android:name="com.diallock.slidediallock.SettingsActivity"
+            android:excludeFromRecents="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AppCompat"
+            android:launchMode="singleTask"></activity>
 
-            android:label="@string/app_name">
+        <activity
+            android:name="com.diallock.slidediallock.pwSettingActivity"
+            android:excludeFromRecents="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AppCompat"
+            android:launchMode="singleTask">
+
+            <intent-filter>
+                <action android:name="android.provider.Settings.SET_PW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.diallock.slidediallock.SettingsActivity2_re"
+            android:excludeFromRecents="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AppCompat"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.provider.Settings.SET_THEME" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.diallock.slidediallock.InAppPayActivitiy"
+            android:excludeFromRecents="true"
+            android:label="DialLock"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.provider.Settings.NO_ADS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
 
-        <activity android:name=".beforeSettingActivity"
+        <service android:name="com.diallock.slidediallock.LockScreenService" />
+
+        <activity
+            android:name="com.diallock.slidediallock.DescActivitiy"
             android:excludeFromRecents="true"
-            android:launchMode="singleTask"
-
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.provider.Settings.DESC" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
-
-        <activity android:name=".SettingsActivity"
-            android:excludeFromRecents="true"
-            android:launchMode="singleTask"
-
-            android:label="@string/app_name">
-        </activity>
-
-        <activity android:name=".pwSettingActivity"
-            android:excludeFromRecents="true"
-            android:launchMode="singleTask"
-
-            android:label="@string/app_name">
-        </activity>
-
-        <activity android:name=".SettingsActivity2"
-            android:excludeFromRecents="true"
-            android:launchMode="singleTask"
-
-            android:label="@string/app_name">
-        </activity>
-
-        <activity android:name=".SettingsActivity3"
-            android:excludeFromRecents="true"
-            android:launchMode="singleTask"
-
-            android:label="@string/app_name">
-        </activity>
-
-        <service android:name=".LockScreenService" />
 
         <receiver
-            android:name=".OnLock_BroadcastReceiver"
+            android:name="com.diallock.slidediallock.OnLock_BroadcastReceiver"
             android:enabled="true"
             android:exported="false"
             android:label="OnLock_BroadcastReceiver">
@@ -89,6 +117,11 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts"
+            android:required="false"/>
     </application>
 
 </manifest>

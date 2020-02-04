@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -64,8 +63,8 @@ public class SettingsActivity2_re extends Activity {
 
         SharedPreferences sf = getSharedPreferences("sFile",MODE_PRIVATE);
 
-        iTheme = sf.getInt("tmpTheme", 1);
-        tmpEffTheme = sf.getInt("tmpEffTheme",1);
+        iTheme = sf.getInt("tmpTheme", 10);
+        tmpEffTheme = sf.getInt("tmpEffTheme",3);
 
         theme1 = (CheckBox)findViewById(R.id.calm1);
         theme2 = (CheckBox)findViewById(R.id.calm2);

@@ -1,4 +1,4 @@
-package com.example.slidediallock;
+package com.diallock.slidediallock;
 
 import org.junit.Test;
 
