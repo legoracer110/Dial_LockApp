@@ -133,7 +133,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="616dp"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
                 <TextView
@@ -499,26 +499,25 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="140dp"
+                    android:layout_height="match_parent"
                     android:layout_marginTop="20dp"
-                    android:gravity="center_horizontal"
+                    android:gravity="bottom|center_horizontal"
                     android:orientation="horizontal">
 
                     <Button
                         android:id="@+id/next"
-                        android:layout_width="110dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
-                        android:text="확 인"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentBottom="true"
+                        android:text="테마 설정 적용하기"
                         android:textSize="15sp" />
+
+
                 </LinearLayout>
-
             </LinearLayout>
-
         </FrameLayout>
-
-
-
-
     </LinearLayout>
+
 </LinearLayout>

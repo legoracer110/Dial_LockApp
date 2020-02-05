@@ -139,7 +139,15 @@ public class beforeSettingActivity extends Activity {
 
         params.gravity = Gravity.CENTER;
 
-        mView = inflate.inflate(R.layout.activity_draglock_ads, null);
+        AppStorage storage = new AppStorage(this);
+        if(storage.purchasedRemoveAds())
+            noAd=true;
+
+        if(noAd)
+            mView = inflate.inflate(R.layout.activity_draglock, null);
+        else
+            mView = inflate.inflate(R.layout.activity_draglock_ads, null);
+
         mView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_IMMERSIVE
                 // Set the content to appear under the system bars so that the
                 // content doesn't resize when the system bars hide and show.
@@ -157,15 +165,8 @@ public class beforeSettingActivity extends Activity {
         pw = sf.getString("pwList", "0000");
         boolean isOn = sf.getBoolean("isLock", true);
 
-//        if(!isOn||pw.equals("0000"))
-//            Unlock();
-
-        AppStorage storage = new AppStorage(this);
         if(!isOn||pw.equals("0000"))
             Unlock();
-
-        if(storage.purchasedRemoveAds())
-            noAd=true;
 
         //pw = "bfha";
         pwSize = sf.getInt("pwSize", 4);
@@ -396,35 +397,37 @@ public class beforeSettingActivity extends Activity {
             mAdView = mView.findViewById(R.id.adView);
             AdRequest adRequest = new AdRequest.Builder().build();
             mAdView.loadAd(adRequest);
+
+            mAdView.setAdListener(new AdListener(){
+                @Override
+                public void onAdLoaded(){
+                    // Code to be executed when an ad finishes loading
+                    //Log.d("ADs", "onAdLoaded");
+                }
+                @Override
+                public void onAdOpened() {
+                    // Code to be executed when an ad opens an overlay that
+                    // covers the screen.
+                    //Log.d("ADs", "onAdOpened");
+                }
+                @Override
+                public void onAdClicked() {
+                    // Code to be executed when the user clicks on an ad.
+                    //Log.d("ADs", "onAdClicked");
+                }
+                @Override
+                public void onAdLeftApplication() {
+                    // Code to be executed when the user has left the app.
+                }
+                @Override
+                public void onAdClosed() {
+                    // Code to be executed when the user is about to return
+                    // to the app after tapping on an ad.
+                }
+            });
         }
 
-        mAdView.setAdListener(new AdListener(){
-            @Override
-            public void onAdLoaded(){
-                // Code to be executed when an ad finishes loading
-                //Log.d("ADs", "onAdLoaded");
-            }
-            @Override
-            public void onAdOpened() {
-                // Code to be executed when an ad opens an overlay that
-                // covers the screen.
-                //Log.d("ADs", "onAdOpened");
-            }
-            @Override
-            public void onAdClicked() {
-                // Code to be executed when the user clicks on an ad.
-                //Log.d("ADs", "onAdClicked");
-            }
-            @Override
-            public void onAdLeftApplication() {
-                // Code to be executed when the user has left the app.
-            }
-            @Override
-            public void onAdClosed() {
-                // Code to be executed when the user is about to return
-                // to the app after tapping on an ad.
-            }
-        });
+
 
     }
 

@@ -14,8 +14,8 @@ android {
         applicationId "com.diallock.slidediallock"
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode 15
-        versionName "10.0.5"
+        versionCode 21
+        versionName "10.1.4"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

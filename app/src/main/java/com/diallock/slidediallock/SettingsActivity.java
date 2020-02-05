@@ -154,6 +154,8 @@ public class SettingsActivity extends Activity  {
         }
         myToast.show();
 
+        if(!removeAd && mInterstitialAd.isLoaded())
+            mInterstitialAd.show();
         //finish();
     }
 
