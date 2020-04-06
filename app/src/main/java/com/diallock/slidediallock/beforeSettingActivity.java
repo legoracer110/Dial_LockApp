@@ -10,6 +10,7 @@ import android.graphics.Point;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
+import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -143,12 +144,17 @@ public class beforeSettingActivity extends Activity {
         if(storage.purchasedRemoveAds())
             noAd=true;
 
+        // Test Version!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        noAd = true;
+
         if(noAd)
             mView = inflate.inflate(R.layout.activity_draglock, null);
         else
             mView = inflate.inflate(R.layout.activity_draglock_ads, null);
 
-        mView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_IMMERSIVE
+
+        mView.setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_IMMERSIVE
                 // Set the content to appear under the system bars so that the
                 // content doesn't resize when the system bars hide and show.
                 | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -157,8 +163,9 @@ public class beforeSettingActivity extends Activity {
                 // Hide the nav bar and status bar
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_FULLSCREEN);
-        bg_screen = (ImageView)mView.findViewById(R.id.bg_img);
 
+
+        bg_screen = (ImageView)mView.findViewById(R.id.bg_img);
         inputPw = "";
 
         SharedPreferences sf = getSharedPreferences("sFile",MODE_PRIVATE);
@@ -386,6 +393,7 @@ public class beforeSettingActivity extends Activity {
         txtWrong2 = (TextView)mView.findViewById(R.id.txtWarning2);
         wrongTrigger = 0;
         isFreeze = false;
+
         wm.addView(mView, params);
 
         if(!noAd) {
